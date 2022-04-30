@@ -1,0 +1,33 @@
+{
+  "name": "discord_bot",
+  "version": "1.0.0",
+  "description": "This is a base for making Discord Bot with Slash Commands",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Synol14/Discord_Bot.git"
+  },
+  "keywords": [
+    "Bot",
+    "Discord",
+    "Base",
+    "Slash Commands",
+    "Logger",
+    "Events",
+    "Colored Console"
+  ],
+  "author": "Synol_",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Synol14/Discord_Bot/issues"
+  },
+  "homepage": "https://github.com/Synol14/Discord_Bot#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "discord.js": "^13.6.0",
+    "dotenv": "^16.0.0"
+  }
+}
