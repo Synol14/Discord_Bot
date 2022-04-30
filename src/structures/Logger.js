@@ -28,7 +28,7 @@ class Logger {
         console.log('['+'Info'.blue+`] ${message}`);
         this.winstonLogger.log({
             level: "info",
-            message: `${this.getTime()} | [Info]: ${message.replace(pattern, '')}`,
+            message: `${this.getTime()} | ${message.replace(pattern, '')}`,
           });
         return this;
     }
@@ -37,7 +37,7 @@ class Logger {
         console.error('['+'Error'.red+`] ${message}`);
         this.winstonLogger.log({
             level: 'error',
-            message: `${this.getTime()} | [Error]: ${message.replace(pattern, '')}`,
+            message: `${this.getTime()} | ${message.replace(pattern, '')}`,
           });
         return this;
     }
