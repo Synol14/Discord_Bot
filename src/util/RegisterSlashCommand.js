@@ -23,20 +23,14 @@ module.exports = (client, guildId) => {
         description: cmd.description,
         options: cmd.options,
         default_permission: cmd.default_permission,
-        //permissions: cmd.permissions
       };
-
-      /*dataStuff.permissions?.forEach((perm) => {
-        if (perm.id === "%everyone") perm.id = guildId;
-        else if (perm.id === "%allchannels") perm.id = parseInt(guildId) - 1;
-      });*/
 
       let clientAPI = client.api.applications(process.env.APPLICATION_ID);
       let guildAPI = clientAPI.guilds(guildId);
 
       client.logger.info('['+'Slash Command'.magenta +']: ['+'POST'.cyan +'] '+`Guild ${guildId}, Command: ${dataStuff.name}`);
       try {
-        await guildAPI.commands.post({ data: dataStuff }); //.then(async(c) => await guildAPI.commands.fetch(c.id).then(cm => cm.permissions.set(dataStuff.permissions)));
+        await guildAPI.commands.post({ data: dataStuff });
       } catch (err) {
         client.logger.error('['+'Slash Command'.magenta +']: ['+'POST-FAILED'.red +'] '+`Guild ${guildId}, Command: ${cmd.name} \n-->  ${err}`);
         console.log(err);

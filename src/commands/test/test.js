@@ -6,7 +6,7 @@ module.exports = {
     description: 'Test Command',
     defer: true,
     ephemeral: true,
-    default_permission: true,
+    default_permission: false, // Only Admin can use it
     options: [
         {
             name: "arg",
@@ -21,19 +21,6 @@ module.exports = {
             required: false
         }
     ],
-    /// NOT WORK NOW \\\
-    /*permissions: [
-        {
-            id: "%everyone",
-            type: 1, // 1 (ROLE), 2 (USER), 3(CHANNEL)
-            permission: false
-        },
-        {
-            id: "%allchannels",
-            type: 3,  // 1 (ROLE), 2 (USER), 3(CHANNEL)
-            permission: true
-        }
-    ],*/
     /**
      * Run Method for Slash Command Interaction
      * @param {Client} client Bot Client
