@@ -10,6 +10,6 @@ module.exports = {
     async run(guild) {
         guild.client.logger.info(` Bot Join Guild ${guild.name} - ${guild.id}`.yellow);
         require('../../util/RegisterSlashCommand')(guild.client, guild.id);
-        guild.client.logger.blankline();
+        guild.client.logger.blankLine();
     }
 }

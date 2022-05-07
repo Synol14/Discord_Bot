@@ -2,9 +2,11 @@ const { Client, CommandInteractionOptionResolver, CommandInteraction } = require
 
 module.exports = {
     name: 'test',
+    type: 1,
     description: 'Test Command',
     defer: true,
     ephemeral: true,
+    default_permission: true,
     options: [
         {
             name: "arg",
@@ -19,6 +21,19 @@ module.exports = {
             required: false
         }
     ],
+    /// NOT WORK NOW \\\
+    /*permissions: [
+        {
+            id: "%everyone",
+            type: 1, // 1 (ROLE), 2 (USER), 3(CHANNEL)
+            permission: false
+        },
+        {
+            id: "%allchannels",
+            type: 3,  // 1 (ROLE), 2 (USER), 3(CHANNEL)
+            permission: true
+        }
+    ],*/
     /**
      * Run Method for Slash Command Interaction
      * @param {Client} client Bot Client
