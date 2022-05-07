@@ -1,5 +1,4 @@
 const { Interaction } = require("discord.js");
-//const { getEmbed, embedReply } = require("../../structures/Utils");
 
 module.exports = {
     name: 'interactionCreate',
@@ -9,10 +8,8 @@ module.exports = {
      * @param {Interaction} interaction
      */
     async run(interaction) {
-        /// Quit if not a command
-        if (!interaction.isCommand()) return;
 
-        /// Get Data
+        /// Get Name
         const { commandName, options } = interaction;
 
         /// Geting command
@@ -21,16 +18,17 @@ module.exports = {
         /// Execute
         let state = 'SUCCESS'
         if (!command) {
-            //await embedReply(interaction, getEmbed('Command no Done !', process.env.RED), true, true);
+            //--> Can send message
             state = 'FAIL (No Done)';
         }
         else {
             try {
                 if (command.defer) await interaction.deferReply({ ephemeral: command.ephemeral });
                 await command.run(interaction.client, interaction, options);
+                //--> Can send message
             } catch (error) {
                 console.error(error);
-                //await embedReply(interaction, getEmbed('Command Error !', process.env.RED), true, true);
+                //--> Can send message
                 state = `FAIL ( ${error} )`;
             } finally {
                 /// Log Command

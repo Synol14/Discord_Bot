@@ -2,7 +2,7 @@ const { Client, CommandInteractionOptionResolver, CommandInteraction } = require
 
 module.exports = {
     name: 'test',
-    type: 1,
+    type: 1, // 1(CHAT_INPUT), [ 2(USER), 3(MESSAGE) ]-> no descrption and no options
     description: 'Test Command',
     defer: true,
     ephemeral: true,
@@ -30,6 +30,6 @@ module.exports = {
     run: async function(client, interaction, options) {
         let message = options.getString('arg');
         if (options.getInteger('optional')) message += " -> " + options.getInteger('optional')
-        interaction.editReply(message);
+        interaction.editReply("message");
     }
 }

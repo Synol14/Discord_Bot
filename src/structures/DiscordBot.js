@@ -30,8 +30,8 @@ class DiscordBot extends Client {
             const commands = readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith('.js'));
             for (const file of commands) {
                 const cmd = require(`${dir}/${dirs}/${file}`);
-                if (!cmd.name || !cmd.description || !cmd.run)
-                    return this.log(`Unable to load Command: ${file.split(".")[0]}, Reason: File doesn't had run/name/desciption`);
+                if (!cmd.name || !cmd.run)
+                    return this.logger.error(`Unable to load Command: ${file.split(".")[0]}, Reason: File doesn't had run/name/desciption`);
                 this.commands.set(cmd.name.toLowerCase(), cmd)
                 this.logger.info(`-> Command loaded: ${cmd.name}`);
             }
