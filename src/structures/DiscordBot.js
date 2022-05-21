@@ -27,7 +27,7 @@ class DiscordBot extends Client {
         const dir = path.join(__dirname, "..", "commands");
         this.commands.clear();
         readdirSync(dir).forEach(dirs => {
-            const commands = readdirSync(`${dir}/${dirs}/`).filter(files => !file.startsWith('_') && files.endsWith('.js'));
+            const commands = readdirSync(`${dir}/${dirs}/`).filter(files => !files.startsWith('_') && files.endsWith('.js'));
             for (const file of commands) {
                 const cmd = require(`${dir}/${dirs}/${file}`);
                 if (!cmd.name || !cmd.run)
