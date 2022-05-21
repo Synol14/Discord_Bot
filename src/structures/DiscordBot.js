@@ -27,7 +27,7 @@ class DiscordBot extends Client {
         const dir = path.join(__dirname, "..", "commands");
         this.commands.clear();
         readdirSync(dir).forEach(dirs => {
-            const commands = readdirSync(`${dir}/${dirs}/`).filter(files => files.endsWith('.js'));
+            const commands = readdirSync(`${dir}/${dirs}/`).filter(files => !file.startsWith('_') && files.endsWith('.js'));
             for (const file of commands) {
                 const cmd = require(`${dir}/${dirs}/${file}`);
                 if (!cmd.name || !cmd.run)
@@ -43,7 +43,7 @@ class DiscordBot extends Client {
         this.logger.blankLine().info('   << Events Loading ... >>'.bold.yellow);
         const dir = path.join(__dirname, "..", "events");
         readdirSync(dir).forEach(dirs => {
-            const eventFiles = readdirSync(`${dir}/${dirs}/`).filter(file => file.endsWith('.js'));
+            const eventFiles = readdirSync(`${dir}/${dirs}/`).filter(file => !file.startsWith('_') && file.endsWith('.js'));
             for (const file of eventFiles) {
                 const event = require(`${dir}/${dirs}/${file}`);
                 if (!event.name || !event.run)
