@@ -30,6 +30,6 @@ module.exports = {
     run: async function(client, interaction, options) {
         let message = options.getString('arg');
         if (options.getInteger('optional')) message += " -> " + options.getInteger('optional')
-        interaction.editReply("message");
+        interaction.editReply(message);
     }
 }
